@@ -1,5 +1,6 @@
 import logo from '../assets/logo.svg';
 import styles from '../css/styles.module.css';
+import Comment from './comment';
 
 interface PostProps {
     name: string;
@@ -34,8 +35,9 @@ export default function Post(props: PostProps) {
                 <textarea placeholder='Escreva um comentário...' rows={7} cols={50} className={styles.input} style={{padding: "20px 20px 20px 20px"}}></textarea>
                 <button className={styles.comment_button}>Comentar</button>
             </div>
-            <div>
-                
+            <div style={{marginTop: '40px'}}>  
+                <Comment></Comment>
+                <Comment></Comment>
             </div>
         </div>
     )
