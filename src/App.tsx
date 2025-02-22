@@ -14,8 +14,8 @@ export default function App() {
           <Profile></Profile>
         </div>
         <div style={{ marginTop: '40px'}}>
-          <Post></Post>
-          <Post></Post>
+          <Post name='Joao' profession='adm' time='publicado há 1 hora'></Post>
+          <Post name='Pedro' profession='eng' time='publicado há 3 horas'></Post>
         </div>
       </main>
     </>

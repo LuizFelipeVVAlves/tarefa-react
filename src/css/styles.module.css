@@ -42,3 +42,20 @@
     border: 5px solid #004B96;
 
 }
+
+.input {
+    border-radius: 5px;
+    resize: none;
+    border: '2px solid #036FDB';
+    
+}
+
+.comment_button{
+    background-color: #036FDB;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+    margin-top: 10px;
+    width: 10%;
+}
