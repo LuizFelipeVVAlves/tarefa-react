@@ -4,5 +4,11 @@ body {
 
 main {
     background-color: #00274F;
-    height: 50vw;
+    height: 100vw;
+    display: flex;
+
+}
+
+p {
+    color: white;
 }

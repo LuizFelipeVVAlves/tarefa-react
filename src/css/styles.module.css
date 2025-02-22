@@ -12,3 +12,33 @@
     width: 138px;
     height: 67px;
 }
+
+.post_logo{
+    border-radius: 100%;
+    border: 5px solid #004B96;
+}
+
+.post_div {
+    background-color: #0E0E1B;
+    border-radius: 20px;
+    width: 1400px;
+    height: 600px;
+    padding: 20px;
+    margin-left: 250px;
+    margin-bottom: 50px;
+    word-wrap: break-word;
+}
+
+.profile_div{
+    background-color: #0E0E1B;
+    border-radius: 20px;
+    width: 200%;
+    
+    padding: 20px;
+}
+
+.profile_logo{
+    border-radius: 100%;
+    border: 5px solid #004B96;
+
+}
