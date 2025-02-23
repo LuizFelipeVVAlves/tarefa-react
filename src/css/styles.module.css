@@ -26,7 +26,7 @@
     max-width: 1400px;
     min-height: 600px;
     padding: 20px;
-    margin-left: 250px;
+    margin-left: 200px;
     margin-bottom: 50px;
     word-wrap: break-word;
 }
@@ -35,9 +35,15 @@
     background-color: #0E0E1B;
     border-radius: 20px;
     width: 200%;
-    
-    padding: 20px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    word-wrap: break-word;    
+
 }
+
 
 .profile_logo{
     border-radius: 100%;

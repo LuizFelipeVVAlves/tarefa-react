@@ -1,7 +1,7 @@
 import logo from '../assets/logo.svg';
 import lixeira from '../assets/delete.svg';
 import styles from '../css/styles.module.css';
-import { JSX, useContext, useState } from 'react';
+import { useContext, useState } from 'react';
 import { CommentsContext } from '../contexts/CommentsContext';
 
 interface commentProps {
