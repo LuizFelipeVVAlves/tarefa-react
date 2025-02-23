@@ -1,7 +1,8 @@
-import React, { useState, JSX } from 'react';
+import React, { useState, JSX, useRef } from 'react';
 import logo from '../assets/logo.svg';
 import styles from '../css/styles.module.css';
 import Comment from './comment';
+import { CommentsContext } from '../contexts/CommentsContext';
 
 interface PostProps {
     name: string;
@@ -9,22 +10,38 @@ interface PostProps {
     time: string;
 }
 
+
+
+var id = 0
+
 export default function Post(props: PostProps) {
     
     var [comments, setComments] = useState<JSX.Element[]>([]);
+    const textAreaRef = useRef<HTMLTextAreaElement>(null)
 
-    function handleClick() {
-        var newCom = React.createElement(Comment, {
-            name: 'Joao',
-            text: 'lalalalalala'
-        })
+    function handlePostClick() {
+       
+        if(textAreaRef?.current == null)
+            return;
 
-        setComments(com => {
-            com.push(newCom)
-            return com;
+        if(textAreaRef.current.value == ''){
+            alert("É necessário adicionar uma mensagem")
+            return;
         }
-            
-          )
+
+
+        
+        id++
+        var newCom = React.createElement(Comment, {
+            id: id,
+            name: 'Pedro',
+            text: textAreaRef?.current?.value,
+            key: id,
+        })
+    
+        setComments([...comments, newCom])
+        
+          
     }
 
     return (
@@ -49,12 +66,15 @@ export default function Post(props: PostProps) {
             <div id='div_feedback' style={{display: 'flex', flexDirection: 'column'}}>   
                 <p>Deixe seu feedback</p>
                 <br />
-                <textarea placeholder='Escreva um comentário...' rows={7} cols={50} className={styles.input} style={{padding: "20px 20px 20px 20px"}}></textarea>
+                <textarea ref={textAreaRef} placeholder='Escreva um comentário...' rows={7} cols={50} className={styles.input} style={{padding: "20px 20px 20px 20px"}}></textarea>
                 <br />
-                <button className={styles.comment_button} onClick={handleClick}>Comentar</button>
+                <button className={styles.comment_button} onClick={handlePostClick}>Comentar</button>
             </div>
-            <div id='div_comment' style={{marginTop: '40px'}}>  
+            <div id='div_comment' style={{marginTop: '40px'}}> 
+            <CommentsContext.Provider value={{comments, setComments}}>
                 {comments}
+            </CommentsContext.Provider>
+                
             </div>
         </div>
     )

@@ -1,18 +1,34 @@
 import logo from '../assets/logo.svg';
 import lixeira from '../assets/delete.svg';
 import styles from '../css/styles.module.css';
-import React, { useState } from 'react';
+import { JSX, useContext, useState } from 'react';
+import { CommentsContext } from '../contexts/CommentsContext';
 
 interface commentProps {
+    id: number,
     name: string,
-    text: string
+    text: string,
+    key: number,
+
 }
 
-export default function Comment({name, text}: commentProps) {
+export default function Comment({id, name, text}: commentProps) {
     
     var [counter, setCounter] = useState<number>(0);
     var [liked, setLiked] = useState<boolean>(false);
-  
+    
+    const commentsContext = useContext(CommentsContext);
+    
+    const { comments, setComments } = commentsContext;
+
+    function handleDeleteClick() {
+        if (comments) {
+            if (setComments) {
+                setComments(comments.filter((comment) => comment.props.id !== id));
+            }
+        }
+    }
+    
     return (
     <div style={{marginTop: '40px'}}>
        <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-start'}}>
@@ -28,7 +44,7 @@ export default function Comment({name, text}: commentProps) {
                         <p style={{color: '#999999', translate: '0 -10px'}}>tempo</p>
                     </div>
                     <div>
-                        <input type="image" src={lixeira} style={{width: '40px', height: '40px'}}/>
+                        <input type="image" src={lixeira} style={{width: '40px', height: '40px'}} onClick={handleDeleteClick}/>
                     </div>
                 </div>
                 <div>
