@@ -80,6 +80,14 @@
     padding-bottom: 20px;
 }
 
-.like_button {
-  
+.liked_text{
+    margin-left: 10px; 
+    transform: translateY(-5px);
+    color: #007DFA ;
+}
+
+.not_liked_text{
+    margin-left: 10px; 
+    transform: translateY(-5px);
+    color: white;
 }
