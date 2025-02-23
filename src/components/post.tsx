@@ -14,9 +14,17 @@ export default function Post(props: PostProps) {
     var [comments, setComments] = useState<JSX.Element[]>([]);
 
     function handleClick() {
-        var newCom = React.createElement(Comment)
+        var newCom = React.createElement(Comment, {
+            name: 'Joao',
+            text: 'lalalalalala'
+        })
 
-        setComments(com => [...com, newCom])
+        setComments(com => {
+            com.push(newCom)
+            return com;
+        }
+            
+          )
     }
 
     return (

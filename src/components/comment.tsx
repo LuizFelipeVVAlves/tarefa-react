@@ -3,7 +3,12 @@ import lixeira from '../assets/delete.svg';
 import styles from '../css/styles.module.css';
 import React, { useState } from 'react';
 
-export default function Comment() {
+interface commentProps {
+    name: string,
+    text: string
+}
+
+export default function Comment({name, text}: commentProps) {
     
     var [counter, setCounter] = useState<number>(0);
     var [liked, setLiked] = useState<boolean>(false);
@@ -19,7 +24,7 @@ export default function Comment() {
             <div className={styles.comment_text}>
                 <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}}>
                     <div>
-                        <p>nome</p>
+                        <p>{name}</p>
                         <p style={{color: '#999999', translate: '0 -10px'}}>tempo</p>
                     </div>
                     <div>
@@ -27,7 +32,7 @@ export default function Comment() {
                     </div>
                 </div>
                 <div>
-                    <p>Gostei muito!!!</p>
+                    <p>{text}</p>
                 </div>
             </div>
         
