@@ -13,7 +13,7 @@ export default function App() {
         <div style={ {marginTop: '40px', marginLeft: '40px'}}>
           <Profile></Profile>
         </div>
-        <div style={{ marginTop: '40px'}}>
+        <div style={{ marginTop: '40px', translate: '-70px'}}>
           <Post name='Joao' profession='adm' time='publicado há 1 hora'></Post>
           <Post name='Pedro' profession='eng' time='publicado há 3 horas'></Post>
         </div>

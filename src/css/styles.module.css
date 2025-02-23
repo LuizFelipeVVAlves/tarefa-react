@@ -29,12 +29,14 @@
     margin-left: 200px;
     margin-bottom: 50px;
     word-wrap: break-word;
+    
 }
 
-.profile_div{
+.profile_div {
+    position: relative;
     background-color: #0E0E1B;
     border-radius: 20px;
-    width: 200%;
+    width: 356px;
     height: 400px;
     display: flex;
     flex-direction: column;
@@ -46,10 +48,13 @@
 
 
 .profile_logo{
+    z-index: 1;
     border-radius: 100%;
     border: 5px solid #004B96;
     width: 100px;
     height: 100px;
+    position: relative;
+    left: 50px;
 }
 
 .input {
@@ -96,4 +101,16 @@
     margin-left: 10px; 
     transform: translateY(-5px);
     color: white;
+}
+
+.background_image{
+    position: absolute;
+    z-index: 0;
+    top: 0px
+}
+
+.profile_info_div{
+    z-index: 1;
+    position: relative;
+    top: 60px
 }
