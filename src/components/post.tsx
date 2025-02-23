@@ -1,3 +1,4 @@
+import React, { useState, JSX } from 'react';
 import logo from '../assets/logo.svg';
 import styles from '../css/styles.module.css';
 import Comment from './comment';
@@ -9,6 +10,14 @@ interface PostProps {
 }
 
 export default function Post(props: PostProps) {
+    
+    var [comments, setComments] = useState<JSX.Element[]>([]);
+
+    function handleClick() {
+        var newCom = React.createElement(Comment)
+
+        setComments(com => [...com, newCom])
+    }
 
     return (
         <div id='div_post' className={styles.post_div}>
@@ -20,8 +29,6 @@ export default function Post(props: PostProps) {
                 </div>
                 <p style={{translate: '60rem'}}>{props.time}</p>
             </div>
-            
-            
             <div id='div_text'>
                 <p>
                     Lorem ipsum dolor sit amet. Ex laboriosam dolorem non tempore earum et voluptatem suscipit ut cupiditate nisi est odit voluptates. Nam magni amet ut ipsam molestiae aut facilis minus et quia reiciendis sed excepturi rerum ex consequatur minima! Ex rerum sunt et incidunt officia et veritatis deserunt. Sit soluta laboriosam et incidunt sequi et eius fugiat est temporibus similique rem illum natus sit unde eveniet.
@@ -36,13 +43,11 @@ export default function Post(props: PostProps) {
                 <br />
                 <textarea placeholder='Escreva um comentário...' rows={7} cols={50} className={styles.input} style={{padding: "20px 20px 20px 20px"}}></textarea>
                 <br />
-                <button className={styles.comment_button}>Comentar</button>
+                <button className={styles.comment_button} onClick={handleClick}>Comentar</button>
             </div>
-            <div style={{marginTop: '40px'}}>  
-                <Comment></Comment>
-                <Comment></Comment>
+            <div id='div_comment' style={{marginTop: '40px'}}>  
+                {comments}
             </div>
         </div>
     )
-
 }

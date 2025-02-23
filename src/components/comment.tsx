@@ -1,13 +1,13 @@
 import logo from '../assets/logo.svg';
 import lixeira from '../assets/delete.svg';
 import styles from '../css/styles.module.css';
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 export default function Comment() {
     
-    var [counter, setCounter] = useState(0);
-    var [liked, setLiked] = useState(false);
-    
+    var [counter, setCounter] = useState<number>(0);
+    var [liked, setLiked] = useState<boolean>(false);
+  
     return (
     <div style={{marginTop: '40px'}}>
        <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-start'}}>
@@ -33,13 +33,13 @@ export default function Comment() {
         
        </div>
        <div style={{marginLeft: '70px', marginTop: '20px', display: 'flex', flexDirection: 'row', justifyContent: 'flex-start'}}>
-       <svg onClick={(e) => {
+       <svg onClick={() => {
             if (liked) {
-                setLiked(false);
-                setCounter(counter - 1);
+                setLiked(liked => !liked);
+                setCounter(counter => counter - 1);
             } else {
-                setLiked(true);
-                setCounter(counter + 1);
+                setLiked(liked => !liked);
+                setCounter(counter => counter + 1);
             }
        }}
         fill={liked ? '#007DFA' : '#8D8D99'} 
