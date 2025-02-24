@@ -41,7 +41,7 @@ export default function Comment({id, name, text}: commentProps) {
                 <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}}>
                     <div>
                         <p>{name}</p>
-                        <p style={{color: '#999999', translate: '0 -10px'}}>tempo</p>
+                        <p style={{color: '#999999', translate: '0 -10px'}}>publicado a 0 horas</p>
                     </div>
                     <div>
                         <input type="image" src={lixeira} style={{width: '40px', height: '40px'}} onClick={handleDeleteClick}/>
